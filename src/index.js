@@ -78,6 +78,7 @@ export let taskController = (function() {
         let groupInput = document.getElementById('group-input')
         let newgroup = groupInput.value
         dataHolder.groupData.push(newgroup)
+        dataHolder.group = groupInput.value
         displayController.resetDisplay()
         displayController.displayAll()
     }
@@ -95,6 +96,10 @@ export let taskController = (function() {
         dataHolder.taskData.sort((a,b) => {
             return b.date > a.date ? -1 : a.date > b.date ? 1 : 0;
           });
+    }
+
+    function formValidation() {
+        
     }
 
     return {
