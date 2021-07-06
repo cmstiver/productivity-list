@@ -1,18 +1,25 @@
 import {displayController} from './display.js'
 
-export let taskData = [
-    {
-        title: "finish this project",
-        desc: "wowowowowowoowowowowowowowowowowowow",
-        date: "11/11/2021",
-        group: "All"
-    },
-]
+export let dataHolder = (function() {
 
-export let groupData = [
-    'All',
-    'Other'
-]
+    let taskData = [
+        {
+            title: "finish project",
+            desc: "wowowowowowoowowowowowowowowowowowow",
+            date: "11/11/2021",
+            group: "All"
+        },
+    ]
+
+    let groupData = [
+        'All',
+        'Other'
+    ]
+    return {
+        taskData,
+        groupData,
+    }
+})();
 
 export let taskController = (function() {
 
@@ -29,14 +36,19 @@ export let taskController = (function() {
 
         let task = newTask(titleInput.value, descInput.value, dateInput.value, group)
         taskData.push(task)
-        displayController.resetDisplay(list)
-        displayController.displayTasks()
+        displayController.resetDisplay()
+        displayController.displayAll()
+    }
+    function deleteTask(title) {
+        let taskIndex = taskData.findIndex(x => x.title === title)
+        taskData.splice(taskIndex, 1)
+        displayController.resetDisplay()
     }
     return {
         createTask,
+        deleteTask,
     }
 })();
 
-displayController.displayTasks()
-displayController.displayGroups()
+displayController.displayAll()
 displayController.assignEventListeners()
