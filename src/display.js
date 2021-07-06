@@ -9,9 +9,12 @@ export let displayController = (function() {
             dataHolder.taskData.forEach((task) => {
                 list.innerHTML += `
                 <div class="task">
-                    <div class="title">${task.title}</div>
-                    <div class="date">${task.date}</div>
-                    <div class="delete">Delete</div>
+                    <div class="taskrow">
+                        <div class="title">${task.title}</div>
+                        <div class="date">${task.date}</div>
+                        <div class="delete">Delete</div>
+                    </div>
+                    <div class="taskdeschidden">${task.desc}</div>
                 </div>
                 `
             })
@@ -61,7 +64,14 @@ export let displayController = (function() {
         }))
 
         let createGroup = document.getElementById('addgroup')
-        createGroup.addEventListener('click', taskController.newGroup)    
+        createGroup.addEventListener('click', taskController.newGroup)
+
+        document.querySelectorAll('.taskrow').forEach((x) => {
+            x.addEventListener('click', (e) => {
+                e.currentTarget.nextSibling.nextSibling.classList.toggle('taskdescshow')
+            })
+        })
+
     }
     return {
         displayAll,
