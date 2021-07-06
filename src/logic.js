@@ -1,0 +1,3 @@
+let myModule = (function() {
+    
+})();
