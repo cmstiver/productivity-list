@@ -26,6 +26,9 @@ body {
 #desc-input {
     grid-column: 1 / 5;
 }
+#date-input {
+    grid-column: 1 / 4;
+}
 #create-task {
     height: 30px;
     width: 90px;
