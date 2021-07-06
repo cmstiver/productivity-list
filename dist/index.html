@@ -9,17 +9,25 @@
 </head>
 <body>
     <div id="sidenav">
+        <h1 style="color: white;">New Task:</h1>
         <div id="createtask">
-            <input type="text" id="title-input" placeholder="Title">
-            <input type="text" id="date-input" placeholder="Date">
-            <input type="text" id="time-input" placeholder="Time">
-            <input type="text" id="group-input" placeholder="Group">
+            <input type="text" id="title-input" class="text-input" placeholder="Title">
+            <input type="text" id="date-input" class="text-input" placeholder="Date">
+            <input type="text" id="time-input" class="text-input" placeholder="Time">
+            <input type="text" id="group-input" class="text-input" placeholder="Group">
+            <button id="create-task">Create Task</button>
         </div>
         <div id="groups">
-            <div id="all">All</div>
+            <div id="all" class="group">All</div>
         </div>
     </div>
-    <div id="list"></div>
+    <div id="list">
+        <div class="task">
+            <div class="title">Finish project</div>
+            <div class="date">07/07/2021</div>
+            <div class="delete">Delete</div>
+        </div>
+    </div>
     <script src="main.js"></script>
 </body>
 </html>
