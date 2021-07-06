@@ -42,6 +42,9 @@ export let displayController = (function() {
         document.querySelectorAll(".delete").forEach(x => x.addEventListener('click', (e) => {
             taskController.deleteTask(e.target.parentNode.firstChild.nextSibling.innerHTML)
         }))
+        document.querySelectorAll(".group").forEach(x => x.addEventListener('click', (e) => {
+            taskController.changeGroup(e.target.id)
+        }))
     }
     return {
         displayAll,

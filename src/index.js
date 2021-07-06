@@ -15,6 +15,7 @@ export let dataHolder = (function() {
         'All',
         'Other'
     ]
+
     return {
         taskData,
         groupData,
@@ -45,11 +46,15 @@ export let taskController = (function() {
         displayController.resetDisplay()
         displayController.displayAll()
     }
+    function changeGroup(id) {
+        group = id
+        console.log(dataHolder.taskData)
+    }
     return {
         createTask,
         deleteTask,
+        changeGroup,
     }
 })();
 
 displayController.displayAll()
-displayController.assignEventListeners()
