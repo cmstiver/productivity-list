@@ -3,7 +3,7 @@ body {
 }
 #sidenav {
     height: 100%;
-    width: 26em;
+    width: 20em;
     position: fixed;
     top: 0;
     left: 0;
@@ -36,17 +36,43 @@ body {
     margin-top: 15px;
 }
 #groups {
-    margin-top: 90px;
+    display: flex;
+    flex-direction: row;
+    margin-left: 21em;
+    margin-top: 10px;
+    margin-bottom: 10px;
+    align-items: center;
+}
+#grouplist {
+    display: flex;
+    flex-direction: row;
 }
 .groupbutton {
     display: block;
-    text-align: center;
+    height: 2em;
     font-size: x-large;
     background-color: turquoise;
-    margin-left: auto;
-    margin-right: auto;
     border-radius: 10px;
-    margin-bottom: 10px;
+}
+#group-input {
+    width: 6em;
+    height: 25px;
+    background-color: turquoise;
+    border-radius: 10px;
+}
+.addgroupbutton {
+    margin-left: 3px;
+}
+#addgroup {
+    background-color: tomato;
+    border-radius: 10px;
+    border: none;
+    width: 30px;
+    text-align: center;
+    font-size: large;
+}
+::placeholder {
+    color: black;
 }
 h1 {
     text-align: center;
@@ -57,7 +83,7 @@ h1 {
     display: flex;
     margin-right: 1em;
     flex-direction: column;
-    margin-left: 27em;
+    margin-left: 21em;
 }
 .task {
     border-radius: 5px;
