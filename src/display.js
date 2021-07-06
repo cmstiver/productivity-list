@@ -51,6 +51,7 @@ export let displayController = (function() {
         })
     }
     function displayAll() {
+        taskController.sortDates()
         displayTasks()
         displayGroups()
         assignEventListeners()
