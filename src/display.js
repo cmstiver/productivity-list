@@ -72,12 +72,12 @@ export let displayController = (function() {
         targeted.innerHTML = `
         <div class="task">
             <div class="taskrow">
-                <input id="${index}" class="task-title-input" value="${dataHolder.taskData[index].title}"></input>
-                <input type="date" class="task-date-input" value="${dataHolder.taskData[index].date}"></input>
+                <input id="${index}" class="task-title-input taskinput" value="${dataHolder.taskData[index].title}"></input>
+                <input type="date" class="task-date-input taskinput" value="${dataHolder.taskData[index].date}"></input>
                 <button class="delete">Delete</button>
             </div>
             <div class="taskdescshow">
-            <input class="task-desc-input" value="${dataHolder.taskData[index].desc}"></input>
+            <input class="task-desc-input taskinput" value="${dataHolder.taskData[index].desc}"></input>
             <button class="confirmedit">Confirm</button>
             </div>
         </div>

@@ -153,3 +153,12 @@ h1 {
     -ms-user-select: none;
     user-select: none;
 }
+.taskinput {
+    background-color: darkgray;
+    width: 200px;
+    height: 20px;
+    font-size: large;
+}
+.task-desc-input {
+    width: 40em;
+}
