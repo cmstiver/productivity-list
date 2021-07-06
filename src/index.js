@@ -26,7 +26,8 @@ export let taskController = (function() {
         };
 
         let task = newTask(titleInput.value, descInput.value, dateInput.value)
-        resetDisplay(list)
+        data.push(task)
+        displayController.resetDisplay(list)
         displayController.displayTasks()
     }
     return {

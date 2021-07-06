@@ -24,6 +24,7 @@ export let displayController = (function() {
     }
     return {
         displayTasks,
-        assignEventListeners
+        assignEventListeners,
+        resetDisplay
     }
 })();
