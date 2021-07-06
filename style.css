@@ -10,3 +10,52 @@ body {
     background-color: black;
     overflow-x: hidden;
 }
+#createtask {
+    display: grid;
+    grid-template-columns: auto auto;
+    padding-left: 1em;
+    padding-right: 1em;
+}
+.text-input {
+    padding: 10px;
+    margin-top: 10px;
+}
+#title-input {
+    grid-column: 1 / 3;
+}
+#time-input {
+    margin-left: 10px;
+}
+#create-task {
+    height: 30px;
+    width: 90px;
+    justify-self: center;
+    margin-top: 15px;
+}
+#groups {
+    margin-top: 90px;
+    text-align: center;
+    font-size: x-large;
+}
+.group {
+    background-color: turquoise;
+    margin-left: 1em;
+    margin-right: 1em;
+    border-radius: 10px;
+}
+h1 {
+    text-align: center;
+    margin-top: 150px;
+    margin-bottom: 10px;
+}
+#list {
+    background-color: rosybrown;
+    display: flex;
+    margin-left: 28em;
+}
+.task {
+    display: flex;
+    justify-content: space-between;
+    background-color: royalblue;
+    width: 100%;
+}
