@@ -42,9 +42,10 @@ body {
 }
 .group {
     background-color: turquoise;
-    margin-left: 1em;
-    margin-right: 1em;
+    margin-left: 5em;
+    margin-right: 5em;
     border-radius: 10px;
+    margin-bottom: 10px;
 }
 h1 {
     text-align: center;
