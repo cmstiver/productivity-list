@@ -23,9 +23,12 @@ export let displayController = (function() {
                 if (dataHolder.group === task.group) {
                     list.innerHTML += `
                     <div class="task">
-                        <div class="title">${task.title}</div>
-                        <div class="date">${task.date}</div>
-                        <div class="delete">Delete</div>
+                        <div class="taskrow">
+                            <div class="title">${task.title}</div>
+                            <div class="date">${task.date}</div>
+                            <div class="delete">Delete</div>
+                        </div>
+                        <div class="taskdeschidden">${task.desc}</div>
                     </div>
                     `
                 }

@@ -36,11 +36,20 @@ export let taskController = (function() {
             return {title, desc, date, group};
         };
 
-        let task = addTask(titleInput.value, descInput.value, dateInput.value, dataHolder.group)
+        let formattedDate = formatDate(dateInput.value)
+
+        let task = addTask(titleInput.value, descInput.value, formattedDate, dataHolder.group)
         dataHolder.taskData.push(task)
         displayController.resetDisplay()
         displayController.displayAll()
     }
+    function formatDate(value) {
+        value = value.split("-")
+        console.log(value)
+        let newValue = `${value[1]}/${value[2]}/${value[0]}`
+        return newValue
+    }
+
     function deleteTask(title) {
         let taskIndex = dataHolder.taskData.findIndex(x => x.title === title)
         dataHolder.taskData.splice(taskIndex, 1)
