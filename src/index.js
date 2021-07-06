@@ -32,11 +32,11 @@ export let taskController = (function() {
         let descInput = document.getElementById('desc-input')
         let dateInput = document.getElementById('date-input')
 
-        const newTask = (title, desc, date, group) => {
+        const addTask = (title, desc, date, group) => {
             return {title, desc, date, group};
         };
 
-        let task = newTask(titleInput.value, descInput.value, dateInput.value, dataHolder.group)
+        let task = addTask(titleInput.value, descInput.value, dateInput.value, dataHolder.group)
         dataHolder.taskData.push(task)
         displayController.resetDisplay()
         displayController.displayAll()
@@ -50,13 +50,21 @@ export let taskController = (function() {
     function changeGroup(id) {
         dataHolder.group = id
         displayController.resetDisplay()
-        displayController.displayAll()
-        
+        displayController.displayAll() 
     }
+    function newGroup() {
+        let groupInput = document.getElementById('group-input')
+        let newgroup = groupInput.value
+        dataHolder.groupData.push(newgroup)
+        displayController.resetDisplay()
+        displayController.displayAll()
+    }
+
     return {
         createTask,
         deleteTask,
         changeGroup,
+        newGroup,
     }
 })();
 

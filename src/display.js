@@ -2,7 +2,7 @@ import {dataHolder, taskController} from './index.js'
 
 export let displayController = (function() {
     let list = document.getElementById('list')
-    let groups = document.getElementById('groups')
+    let groups = document.getElementById('grouplist')
 
     function displayTasks() {
         if (dataHolder.group === "All") {
@@ -59,6 +59,9 @@ export let displayController = (function() {
         document.querySelectorAll(".group").forEach(x => x.addEventListener('click', (e) => {
             taskController.changeGroup(e.target.id)
         }))
+
+        let createGroup = document.getElementById('addgroup')
+        createGroup.addEventListener('click', taskController.newGroup)    
     }
     return {
         displayAll,
