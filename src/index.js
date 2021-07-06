@@ -10,9 +10,11 @@ export let data = [
     {
         title: "omg",
         desc: "wowowowowowoowowowowowowowowowowowow",
-        date: "11/11/2021",
+        date: "11/66/2021",
         group: "all"
     }
 ]
+
+
 
 displayController.displayTasks()
