@@ -7,6 +7,7 @@ export let displayController = (function() {
     function displayTasks() {
         if (dataHolder.group === "All") {
             dataHolder.taskData.forEach((task) => {
+                task.date = taskController.formatDate(task.date)
                 list.innerHTML += `
                 <div class="task">
                     <div class="taskrow expand">
@@ -24,6 +25,7 @@ export let displayController = (function() {
         } else {
             dataHolder.taskData.forEach((task) => {
                 if (dataHolder.group === task.group) {
+                    task.date = taskController.formatDate(task.date)
                     list.innerHTML += `
                     <div class="task">
                         <div class="taskrow expand">
