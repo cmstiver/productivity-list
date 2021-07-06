@@ -1,13 +1,13 @@
 body {
-    background-color: grey;
+    background-color: #E5F9E0;
 }
 #sidenav {
     height: 100%;
-    width: 20em;
+    width: 18em;
     position: fixed;
     top: 0;
     left: 0;
-    background-color: black;
+    background-color: #2F9C95;
     overflow-x: hidden;
 }
 #createtask {
@@ -33,12 +33,15 @@ body {
     height: 30px;
     width: 90px;
     justify-self: center;
-    margin-top: 15px;
+    margin-top: 18px;
+    margin-left: 9px;
+    border-radius: 5px;
+    border: none;
 }
 #groups {
     display: flex;
     flex-direction: row;
-    margin-left: 21em;
+    margin-left: 19em;
     margin-top: 10px;
     margin-bottom: 10px;
     align-items: center;
@@ -51,14 +54,18 @@ body {
     display: block;
     height: 2em;
     font-size: x-large;
-    background-color: turquoise;
+    background-color: #EFB0A1;
     border-radius: 10px;
+    border: none;
+    margin-right: 4px;
 }
 #group-input {
     width: 6em;
     height: 25px;
-    background-color: turquoise;
-    border-radius: 10px;
+    background-color: #EFB0A1;
+    border-radius: 5px;
+    font-size: large;
+    border: none;
 }
 .addgroupbutton {
     margin-left: 3px;
@@ -78,31 +85,32 @@ h1 {
     text-align: center;
     margin-top: 150px;
     margin-bottom: 10px;
+    color: #E5F9E0;
 }
 #list {
     display: flex;
     margin-right: 1em;
     flex-direction: column;
-    margin-left: 21em;
+    margin-left: 19em;
 }
 .task {
     border-radius: 5px;
     padding: 5px;
-    background-color: royalblue;
+    background-color: #40C9A2;
     margin-bottom: 1em;
 }
 .taskdeschidden {
     display: none;
 }
 .taskdescshow {
-    background-color: rgb(87, 122, 226);
+    background-color: #A3F7B5;
     border-radius: 5px;
     margin-top: 5px;
     margin-bottom: 5px;
     margin-left: 20px;
     margin-right: 1px;
     display: flex;
-    border-left: silver solid 2px;
+    border-left: #E5F9E0 5px solid;
     padding-left: 10px;
     justify-content: space-between;
     word-wrap: normal;
@@ -135,9 +143,9 @@ h1 {
 }
 .taskrow {
     display: grid;
-    background-color: rgb(87, 122, 226);
+    background-color: #A3F7B5;
     border-radius: 5px;
-    border-left: silver solid 2px;
+    border-left: #E5F9E0 5px solid;
     grid-template-columns: 33% auto 80px;
     align-content: center;
     align-items: center;
