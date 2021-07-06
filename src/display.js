@@ -7,12 +7,12 @@ export let displayController = (function() {
     function displayTasks() {
         if (dataHolder.group === "All") {
             dataHolder.taskData.forEach((task) => {
-                task.date = taskController.formatDate(task.date)
+                let date = taskController.formatDate(task.date)
                 list.innerHTML += `
                 <div class="task">
                     <div class="taskrow expand">
                         <div class="title">${task.title}</div>
-                        <div class="date">${task.date}</div>
+                        <div class="date">${date}</div>
                         <button class="delete">Delete</button>
                     </div>
                     <div class="taskdeschidden">
@@ -25,19 +25,19 @@ export let displayController = (function() {
         } else {
             dataHolder.taskData.forEach((task) => {
                 if (dataHolder.group === task.group) {
-                    task.date = taskController.formatDate(task.date)
+                    let date = taskController.formatDate(task.date)
                     list.innerHTML += `
                     <div class="task">
-                        <div class="taskrow expand">
-                            <div class="title">${task.title}</div>
-                            <div class="date">${task.date}</div>
-                            <div class="delete">Delete</div>
-                        </div>
-                        <div class="taskdeschidden">
-                        <div class="taskdesc">${task.desc}</div>
-                        <button class="edit">Edit</button>
-                        </div>
+                    <div class="taskrow expand">
+                        <div class="title">${task.title}</div>
+                        <div class="date">${date}</div>
+                        <button class="delete">Delete</button>
                     </div>
+                    <div class="taskdeschidden">
+                    <div class="taskdesc">${task.desc}</div>
+                    <button class="edit">Edit</button>
+                    </div>
+                </div>
                     `
                 }
             })
