@@ -16,15 +16,16 @@ export let dataHolder = (function() {
         'Other'
     ]
 
+    let group = 'All'
+
     return {
         taskData,
         groupData,
+        group,
     }
 })();
 
 export let taskController = (function() {
-
-    let group = 'All'
 
     function createTask() {
         let titleInput = document.getElementById('title-input')
@@ -35,7 +36,7 @@ export let taskController = (function() {
             return {title, desc, date, group};
         };
 
-        let task = newTask(titleInput.value, descInput.value, dateInput.value, group)
+        let task = newTask(titleInput.value, descInput.value, dateInput.value, dataHolder.group)
         dataHolder.taskData.push(task)
         displayController.resetDisplay()
         displayController.displayAll()
@@ -47,8 +48,10 @@ export let taskController = (function() {
         displayController.displayAll()
     }
     function changeGroup(id) {
-        group = id
-        console.log(dataHolder.taskData)
+        dataHolder.group = id
+        displayController.resetDisplay()
+        displayController.displayAll()
+        
     }
     return {
         createTask,

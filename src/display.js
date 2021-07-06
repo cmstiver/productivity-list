@@ -5,15 +5,29 @@ export let displayController = (function() {
     let groups = document.getElementById('groups')
 
     function displayTasks() {
-        dataHolder.taskData.forEach((task) => {
-            list.innerHTML += `
-            <div class="task">
-                <div class="title">${task.title}</div>
-                <div class="date">${task.date}</div>
-                <div class="delete">Delete</div>
-            </div>
-            `
-        })
+        if (dataHolder.group === "All") {
+            dataHolder.taskData.forEach((task) => {
+                list.innerHTML += `
+                <div class="task">
+                    <div class="title">${task.title}</div>
+                    <div class="date">${task.date}</div>
+                    <div class="delete">Delete</div>
+                </div>
+                `
+            })
+        } else {
+            dataHolder.taskData.forEach((task) => {
+                if (dataHolder.group === task.group) {
+                    list.innerHTML += `
+                    <div class="task">
+                        <div class="title">${task.title}</div>
+                        <div class="date">${task.date}</div>
+                        <div class="delete">Delete</div>
+                    </div>
+                    `
+                }
+            })
+        }
     }
     function displayGroups() {
         dataHolder.groupData.forEach((group) => {
