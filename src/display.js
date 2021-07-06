@@ -13,6 +13,9 @@ export let displayController = (function() {
         })
     }
     function createTask() {
+        let titleInput = document.getElementById('title-input')
+        let descInput = document.getElementById('desc-input')
+        let dateInput = document.getElementById('date-input')
         
     }
     return {
