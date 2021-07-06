@@ -1,0 +1,9 @@
+#sidenav {
+    height: 100%;
+    width: 26em;
+    position: fixed;
+    top: 0;
+    left: 0;
+    background-color: black;
+    overflow-x: hidden;
+}
