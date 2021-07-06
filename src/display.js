@@ -25,6 +25,7 @@ export let displayController = (function() {
     function displayAll() {
         displayTasks()
         displayGroups()
+        assignEventListeners()
     }
     function resetDisplay() {
         while (list.firstChild) {

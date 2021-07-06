@@ -35,14 +35,15 @@ export let taskController = (function() {
         };
 
         let task = newTask(titleInput.value, descInput.value, dateInput.value, group)
-        taskData.push(task)
+        dataHolder.taskData.push(task)
         displayController.resetDisplay()
         displayController.displayAll()
     }
     function deleteTask(title) {
-        let taskIndex = taskData.findIndex(x => x.title === title)
-        taskData.splice(taskIndex, 1)
+        let taskIndex = dataHolder.taskData.findIndex(x => x.title === title)
+        dataHolder.taskData.splice(taskIndex, 1)
         displayController.resetDisplay()
+        displayController.displayAll()
     }
     return {
         createTask,
