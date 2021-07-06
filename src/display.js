@@ -12,7 +12,7 @@ export let displayController = (function() {
                     <div class="taskrow">
                         <div class="title">${task.title}</div>
                         <div class="date">${task.date}</div>
-                        <div class="delete">Delete</div>
+                        <button class="delete">Delete</button>
                     </div>
                     <div class="taskdeschidden">${task.desc}</div>
                 </div>
@@ -38,7 +38,7 @@ export let displayController = (function() {
     function displayGroups() {
         dataHolder.groupData.forEach((group) => {
             grouplist.innerHTML += `
-            <div id="${group}" class="group groupbutton">${group}</div>
+            <button id="${group}" class="group groupbutton">${group}</button>
             `
         })
     }

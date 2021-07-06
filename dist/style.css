@@ -37,13 +37,14 @@ body {
 }
 #groups {
     margin-top: 90px;
-    text-align: center;
-    font-size: x-large;
 }
 .groupbutton {
+    display: block;
+    text-align: center;
+    font-size: x-large;
     background-color: turquoise;
-    margin-left: 5em;
-    margin-right: 5em;
+    margin-left: auto;
+    margin-right: auto;
     border-radius: 10px;
     margin-bottom: 10px;
 }
@@ -60,7 +61,7 @@ h1 {
 }
 .task {
     border-radius: 5px;
-    padding: 10px;
+    padding: 5px;
     background-color: royalblue;
     margin-bottom: 1em;
 }
@@ -71,9 +72,19 @@ h1 {
     margin-top: 10px;
     display: flex;
 }
+.delete {
+    background-color: red;
+    text-align: center;
+    justify-content: center;
+    border-radius: 5px;
+    padding: 5px;
+}
 .taskrow {
-    display: flex;
-    justify-content: space-between;
+    display: grid;
+    grid-template-columns: 33% auto 80px;
+    align-content: center;
+    align-items: center;
+    font-size: x-large;
 }
 .unselectable {
     -webkit-touch-callout: none;
