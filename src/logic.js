@@ -1,3 +1,0 @@
-let myModule = (function() {
-    
-})();
