@@ -9,7 +9,7 @@ export let displayController = (function() {
             dataHolder.taskData.forEach((task) => {
                 list.innerHTML += `
                 <div class="task">
-                    <div class="taskrow">
+                    <div class="taskrow expand">
                         <div class="title">${task.title}</div>
                         <div class="date">${task.date}</div>
                         <button class="delete">Delete</button>
@@ -26,7 +26,7 @@ export let displayController = (function() {
                 if (dataHolder.group === task.group) {
                     list.innerHTML += `
                     <div class="task">
-                        <div class="taskrow">
+                        <div class="taskrow expand">
                             <div class="title">${task.title}</div>
                             <div class="date">${task.date}</div>
                             <div class="delete">Delete</div>
@@ -61,6 +61,27 @@ export let displayController = (function() {
             groups.removeChild(groups.firstChild);
         }
     }
+
+    function replaceDataWithInput(targeted) {
+        let title = targeted.firstChild.nextSibling.firstChild.nextSibling.innerHTML
+        let index = dataHolder.taskData.findIndex(x => x.title === title)
+
+        targeted.innerHTML = `
+        <div class="task">
+            <div class="taskrow">
+                <input id="${index}" class="task-title-input" value="${dataHolder.taskData[index].title}"></input>
+                <input type="date" class="task-date-input" value="${dataHolder.taskData[index].date}"></input>
+                <button class="delete">Delete</button>
+            </div>
+            <div class="taskdescshow">
+            <input class="task-desc-input" value="${dataHolder.taskData[index].desc}"></input>
+            <button class="confirmedit">Confirm</button>
+            </div>
+        </div>
+        `
+        assignEventListeners()
+    }
+
     function assignEventListeners() {
         let createTask = document.getElementById('create-task')
         createTask.addEventListener('click', taskController.createTask)
@@ -68,6 +89,15 @@ export let displayController = (function() {
         document.querySelectorAll(".delete").forEach(x => x.addEventListener('click', (e) => {
             taskController.deleteTask(e.target.parentNode.firstChild.nextSibling.innerHTML)
         }))
+
+        document.querySelectorAll(".edit").forEach(x => x.addEventListener('click', (e) => {
+            replaceDataWithInput(e.target.parentNode.parentNode)
+        }))
+
+        document.querySelectorAll(".confirmedit").forEach(x => x.addEventListener('click', (e) => {
+            taskController.editTask(e.target.parentNode.parentNode)
+        }))
+
         document.querySelectorAll(".group").forEach(x => x.addEventListener('click', (e) => {
             taskController.changeGroup(e.target.id)
         }))
@@ -75,7 +105,7 @@ export let displayController = (function() {
         let createGroup = document.getElementById('addgroup')
         createGroup.addEventListener('click', taskController.newGroup)
 
-        document.querySelectorAll('.taskrow').forEach((x) => {
+        document.querySelectorAll('.expand').forEach((x) => {
             x.addEventListener('click', (e) => {
                 e.currentTarget.nextSibling.nextSibling.classList.toggle('taskdescshow')
             })

@@ -43,9 +43,9 @@ export let taskController = (function() {
         displayController.resetDisplay()
         displayController.displayAll()
     }
+
     function formatDate(value) {
         value = value.split("-")
-        console.log(value)
         let newValue = `${value[1]}/${value[2]}/${value[0]}`
         return newValue
     }
@@ -56,11 +56,29 @@ export let taskController = (function() {
         displayController.resetDisplay()
         displayController.displayAll()
     }
+
     function changeGroup(id) {
         dataHolder.group = id
         displayController.resetDisplay()
         displayController.displayAll() 
     }
+
+    function editTask(targeted) {
+        let titleInput = document.querySelector('.task-title-input').value
+        let dateInput = document.querySelector('.task-date-input').value
+        let descInput = document.querySelector('.task-desc-input').value
+        let index = targeted.firstChild.nextSibling.firstChild.nextSibling.id
+
+        let formattedDate = formatDate(dateInput)
+
+        dataHolder.taskData[index].title = titleInput
+        dataHolder.taskData[index].date = formattedDate
+        dataHolder.taskData[index].desc = descInput
+
+        displayController.resetDisplay()
+        displayController.displayAll()
+    }
+
     function newGroup() {
         let groupInput = document.getElementById('group-input')
         let newgroup = groupInput.value
@@ -74,6 +92,7 @@ export let taskController = (function() {
         deleteTask,
         changeGroup,
         newGroup,
+        editTask,
     }
 })();
 
