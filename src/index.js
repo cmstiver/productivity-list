@@ -15,6 +15,22 @@ export let data = [
     }
 ]
 
+export let taskController = (function() {
+    function createTask() {
+        let titleInput = document.getElementById('title-input')
+        let descInput = document.getElementById('desc-input')
+        let dateInput = document.getElementById('date-input')
 
+        const newTask = (title, desc, date, group) => {
+            return {title, desc, date, group};
+        };
+
+        let task = newTask(titleInput.value, descInput.value, dateInput.value)
+        displayController.displayTasks()
+    }
+    return {
+        createTask,
+    }
+})();
 
 displayController.displayTasks()
