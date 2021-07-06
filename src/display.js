@@ -14,7 +14,10 @@ export let displayController = (function() {
                         <div class="date">${task.date}</div>
                         <button class="delete">Delete</button>
                     </div>
-                    <div class="taskdeschidden">${task.desc}</div>
+                    <div class="taskdeschidden">
+                    <div>${task.desc}</div>
+                    <button class="edit">Edit</button>
+                    </div>
                 </div>
                 `
             })
@@ -28,7 +31,10 @@ export let displayController = (function() {
                             <div class="date">${task.date}</div>
                             <div class="delete">Delete</div>
                         </div>
-                        <div class="taskdeschidden">${task.desc}</div>
+                        <div class="taskdeschidden">
+                        <div>${task.desc}</div>
+                        <button class="edit">Edit</button>
+                        </div>
                     </div>
                     `
                 }
