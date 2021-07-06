@@ -1,9 +1,10 @@
-import {data} from './index.js'
+import {data, taskController} from './index.js'
 
 export let displayController = (function() {
     function displayTasks() {
+        let list = document.getElementById('list')
         data.forEach((task) => {
-            document.getElementById('list').innerHTML += `
+            list.innerHTML += `
             <div class="task">
                 <div class="title">${task.title}</div>
                 <div class="date">${task.date}</div>
@@ -12,7 +13,17 @@ export let displayController = (function() {
             `
         })
     }
+    function resetDisplay(parent) {
+        while (parent.firstChild) {
+            parent.removeChild(parent.firstChild);
+        }
+    }
+    function assignEventListeners() {
+        let createTask = document.getElementById('create-task')
+        createTask.addEventListener('click', taskController.createTask)
+    }
     return {
         displayTasks,
+        assignEventListeners
     }
 })();
