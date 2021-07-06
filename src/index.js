@@ -82,6 +82,15 @@ export let taskController = (function() {
         displayController.displayAll()
     }
 
+    function deleteGroup() {
+        let groupIndex = dataHolder.groupData.findIndex(x => x === dataHolder.group)
+        console.log(groupIndex)
+        dataHolder.groupData.splice(groupIndex, 1)
+        dataHolder.group = 'All'
+        displayController.resetDisplay()
+        displayController.displayAll()
+    }
+
     function sortDates() {
         dataHolder.taskData.sort((a,b) => {
             return b.date > a.date ? -1 : a.date > b.date ? 1 : 0;
@@ -95,7 +104,8 @@ export let taskController = (function() {
         newGroup,
         editTask,
         formatDate,
-        sortDates
+        sortDates,
+        deleteGroup
     }
 })();
 

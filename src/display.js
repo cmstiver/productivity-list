@@ -93,6 +93,9 @@ export let displayController = (function() {
             taskController.deleteTask(e.target.parentNode.firstChild.nextSibling.innerHTML)
         }))
 
+        let deleteGroup = document.getElementById('deletegroup')
+        deleteGroup.addEventListener('click', taskController.deleteGroup)
+
         document.querySelectorAll(".edit").forEach(x => x.addEventListener('click', (e) => {
             replaceDataWithInput(e.target.parentNode.parentNode)
         }))
