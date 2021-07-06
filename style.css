@@ -78,6 +78,14 @@ body {
     text-align: center;
     font-size: large;
 }
+#deletegroup {
+    background-color: rgb(117, 201, 230);
+    border-radius: 10px;
+    border: none;
+    width: 30px;
+    text-align: center;
+    font-size: large;
+}
 ::placeholder {
     color: black;
 }
