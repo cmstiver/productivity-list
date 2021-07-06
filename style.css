@@ -49,13 +49,16 @@ h1 {
     margin-bottom: 10px;
 }
 #list {
-    background-color: rosybrown;
     display: flex;
-    margin-left: 28em;
+    margin-right: 1em;
+    flex-direction: column;
+    margin-left: 27em;
 }
 .task {
     display: flex;
+    border-radius: 5px;
+    padding: 10px;
     justify-content: space-between;
     background-color: royalblue;
-    width: 100%;
+    margin-bottom: 1em;
 }
