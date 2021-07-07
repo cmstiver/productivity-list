@@ -15,8 +15,7 @@ body {
     display: grid;
     width: 16em;
     grid-template-columns: auto auto auto auto;
-    padding-left: 1em;
-    padding-right: 1em;
+    margin: auto;
 }
 .text-input {
     padding: 10px;
