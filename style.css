@@ -4,7 +4,7 @@ body {
 }
 #sidenav {
     height: 100%;
-    width: 18em;
+    width: 19em;
     position: fixed;
     top: 0;
     left: 0;
@@ -49,7 +49,7 @@ body {
 #groups {
     display: flex;
     flex-direction: row;
-    margin-left: 19em;
+    margin-left: 20em;
     margin-top: 10px;
     margin-bottom: 10px;
     align-items: center;
@@ -111,7 +111,7 @@ h1 {
     display: flex;
     margin-right: 1em;
     flex-direction: column;
-    margin-left: 19em;
+    margin-left: 20em;
 }
 .task {
     border-radius: 5px;
