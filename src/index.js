@@ -31,6 +31,11 @@ export let taskController = (function() {
         let descInput = document.getElementById('desc-input')
         let dateInput = document.getElementById('date-input')
 
+        let check = newTaskValidation(titleInput.value, descInput.value, dateInput.value)
+        if (check === false) {
+            return
+        }
+
         const addTask = (title, desc, date, group) => {
             return {title, desc, date, group};
         };
@@ -64,6 +69,12 @@ export let taskController = (function() {
         let titleInput = document.querySelector('.task-title-input').value
         let dateInput = document.querySelector('.task-date-input').value
         let descInput = document.querySelector('.task-desc-input').value
+
+        let check = editTaskValidation(titleInput, dateInput, descInput)
+        if (check === false) {
+            return
+        }
+
         let index = targeted.firstChild.nextSibling.firstChild.nextSibling.id
 
         dataHolder.taskData[index].title = titleInput
@@ -76,6 +87,12 @@ export let taskController = (function() {
 
     function newGroup() {
         let groupInput = document.getElementById('group-input')
+
+        let check = newGroupValidation(groupInput.value)
+        if (check === false) {
+            return
+        }
+
         let newgroup = groupInput.value
         dataHolder.groupData.push(newgroup)
         dataHolder.group = groupInput.value
@@ -98,8 +115,23 @@ export let taskController = (function() {
           });
     }
 
-    function formValidation() {
-        
+    function newTaskValidation(titleInput, descInput, dateInput) {
+        if (titleInput.length < 1 || descInput.length < 1 || dateInput == "") {
+            alert('All inputs should be filled.')
+            return false
+        }
+    }
+    function newGroupValidation(groupInput) {
+        if (groupInput.length < 1) {
+            alert('All inputs should be filled.')
+            return false
+        }
+    }
+    function editTaskValidation(titleInput, dateInput, descInput) {
+        if (titleInput.length < 1 || descInput.length < 1 || dateInput == "") {
+            alert('All inputs should be filled.')
+            return false
+        }
     }
 
     return {
