@@ -136,6 +136,9 @@ export let taskController = (function() {
     }
 
     function sortDates() {
+        if (dataHolder.taskData === '') {
+            return
+        }
         dataHolder.taskData.sort((a,b) => {
             return b.date > a.date ? -1 : a.date > b.date ? 1 : 0;
           });
