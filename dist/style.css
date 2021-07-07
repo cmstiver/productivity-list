@@ -131,7 +131,7 @@ h1 {
     margin-left: 20px;
     margin-right: 1px;
     display: flex;
-    border-left: #E5F9E0 5px solid;
+    border-left: #6c7e68 5px solid;
     padding-left: 10px;
     justify-content: space-between;
     word-wrap: normal;
@@ -167,12 +167,13 @@ h1 {
     border-radius: 5px;
     border: solid black 1px;
     cursor: pointer;
+    margin-left: 20px;
 }
 .taskrow {
     display: grid;
     background-color: #A3F7B5;
     border-radius: 5px;
-    border-left: #E5F9E0 5px solid;
+    border-left: #6c7e68 5px solid;
     grid-template-columns: 33% auto 80px;
     align-content: center;
     align-items: center;

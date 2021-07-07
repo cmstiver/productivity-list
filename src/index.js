@@ -42,8 +42,12 @@ export let taskController = (function() {
 
         let task = addTask(titleInput.value, descInput.value, dateInput.value, dataHolder.group)
         dataHolder.taskData.push(task)
+        titleInput.value = ''
+        descInput.value = ''
+        dateInput.value = ''
         displayController.resetDisplay()
         displayController.displayAll()
+        addToStorage()
     }
 
     function formatDate(value) {
@@ -57,12 +61,14 @@ export let taskController = (function() {
         dataHolder.taskData.splice(taskIndex, 1)
         displayController.resetDisplay()
         displayController.displayAll()
+        addToStorage()
     }
 
     function changeGroup(id) {
         dataHolder.group = id
         displayController.resetDisplay()
-        displayController.displayAll() 
+        displayController.displayAll()
+        addToStorage()
     }
 
     function editTask(targeted) {
@@ -83,6 +89,7 @@ export let taskController = (function() {
 
         displayController.resetDisplay()
         displayController.displayAll()
+        addToStorage()
     }
 
     function newGroup() {
@@ -96,17 +103,23 @@ export let taskController = (function() {
         let newgroup = groupInput.value
         dataHolder.groupData.push(newgroup)
         dataHolder.group = groupInput.value
+        groupInput.value = ''
         displayController.resetDisplay()
         displayController.displayAll()
+        addToStorage()
     }
 
     function deleteGroup() {
+        if (dataHolder.group === "All") {
+            return
+        }
+
         let groupIndex = dataHolder.groupData.findIndex(x => x === dataHolder.group)
-        console.log(groupIndex)
         dataHolder.groupData.splice(groupIndex, 1)
         dataHolder.group = 'All'
         displayController.resetDisplay()
         displayController.displayAll()
+        addToStorage()
     }
 
     function sortDates() {
@@ -133,6 +146,20 @@ export let taskController = (function() {
             return false
         }
     }
+    function addToStorage() {
+        localStorage.setItem("taskDataString", JSON.stringify(dataHolder.taskData));
+        localStorage.setItem("groupDataString", JSON.stringify(dataHolder.groupData));
+      }
+      
+    function retrieveFromStorage() {
+        if (localStorage.length != 0) {
+            let retrievedTaskData = localStorage.getItem("taskDataString");
+            dataHolder.taskData = JSON.parse(retrievedTaskData);
+
+            let retrievedGroupData = localStorage.getItem("groupDataString");
+            dataHolder.groupData = JSON.parse(retrievedGroupData);
+        }
+    }
 
     return {
         createTask,
@@ -142,8 +169,10 @@ export let taskController = (function() {
         editTask,
         formatDate,
         sortDates,
-        deleteGroup
+        deleteGroup,
+        retrieveFromStorage,
     }
 })();
 
+taskController.retrieveFromStorage()
 displayController.displayAll()
