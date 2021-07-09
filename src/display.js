@@ -45,7 +45,7 @@ export let displayController = (function() {
     }
     function displayGroups() {
         dataHolder.groupData.forEach((group) => {
-            grouplist.innerHTML += `
+            groups.innerHTML += `
             <button id="${group}" class="group groupbutton">${group}</button>
             `
         })
