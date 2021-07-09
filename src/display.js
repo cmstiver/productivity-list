@@ -1,14 +1,14 @@
-import {dataHolder, taskController} from './index.js'
+import { dataHolder, taskController } from "./index.js";
 
-export let displayController = (function() {
-    let list = document.getElementById('list')
-    let groups = document.getElementById('grouplist')
+export let displayController = (function () {
+  let list = document.getElementById("list");
+  let groups = document.getElementById("grouplist");
 
-    function displayTasks() {
-        if (dataHolder.group === "All") {
-            dataHolder.taskData.forEach((task) => {
-                let date = taskController.formatDate(task.date)
-                list.innerHTML += `
+  function displayTasks() {
+    if (dataHolder.group === "All") {
+      dataHolder.taskData.forEach((task) => {
+        let date = taskController.formatDate(task.date);
+        list.innerHTML += `
                 <div class="task">
                     <div class="taskrow expand">
                         <div class="title">${task.title}</div>
@@ -20,13 +20,13 @@ export let displayController = (function() {
                     <button class="edit">Edit</button>
                     </div>
                 </div>
-                `
-            })
-        } else {
-            dataHolder.taskData.forEach((task) => {
-                if (dataHolder.group === task.group) {
-                    let date = taskController.formatDate(task.date)
-                    list.innerHTML += `
+                `;
+      });
+    } else {
+      dataHolder.taskData.forEach((task) => {
+        if (dataHolder.group === task.group) {
+          let date = taskController.formatDate(task.date);
+          list.innerHTML += `
                     <div class="task">
                     <div class="taskrow expand">
                         <div class="title">${task.title}</div>
@@ -38,38 +38,39 @@ export let displayController = (function() {
                     <button class="edit">Edit</button>
                     </div>
                 </div>
-                    `
-                }
-            })
+                    `;
         }
+      });
     }
-    function displayGroups() {
-        dataHolder.groupData.forEach((group) => {
-            groups.innerHTML += `
+  }
+  function displayGroups() {
+    dataHolder.groupData.forEach((group) => {
+      groups.innerHTML += `
             <button id="${group}" class="group groupbutton">${group}</button>
-            `
-        })
+            `;
+    });
+  }
+  function displayAll() {
+    taskController.sortDates();
+    displayTasks();
+    displayGroups();
+    assignEventListeners();
+  }
+  function resetDisplay() {
+    while (list.firstChild) {
+      list.removeChild(list.firstChild);
     }
-    function displayAll() {
-        taskController.sortDates()
-        displayTasks()
-        displayGroups()
-        assignEventListeners()
+    while (groups.firstChild) {
+      groups.removeChild(groups.firstChild);
     }
-    function resetDisplay() {
-        while (list.firstChild) {
-            list.removeChild(list.firstChild);
-        }
-        while (groups.firstChild) {
-            groups.removeChild(groups.firstChild);
-        }
-    }
+  }
 
-    function replaceDataWithInput(targeted) {
-        let title = targeted.firstChild.nextSibling.firstChild.nextSibling.innerHTML
-        let index = dataHolder.taskData.findIndex(x => x.title === title)
+  function replaceDataWithInput(targeted) {
+    let title =
+      targeted.firstChild.nextSibling.firstChild.nextSibling.innerHTML;
+    let index = dataHolder.taskData.findIndex((x) => x.title === title);
 
-        targeted.innerHTML = `
+    targeted.innerHTML = `
         <div class="task">
             <div class="taskrow">
                 <input id="${index}" class="task-title-input taskinput" value="${dataHolder.taskData[index].title}"></input>
@@ -81,46 +82,57 @@ export let displayController = (function() {
             <button class="confirmedit">Confirm</button>
             </div>
         </div>
-        `
-        assignEventListeners()
-    }
+        `;
+    assignEventListeners();
+  }
 
-    function assignEventListeners() {
-        let createTask = document.getElementById('create-task')
-        createTask.addEventListener('click', taskController.createTask)
+  function assignEventListeners() {
+    let createTask = document.getElementById("create-task");
+    createTask.addEventListener("click", taskController.createTask);
 
-        document.querySelectorAll(".delete").forEach(x => x.addEventListener('click', (e) => {
-            taskController.deleteTask(e.target.parentNode.firstChild.nextSibling.innerHTML)
-        }))
+    document.querySelectorAll(".delete").forEach((x) =>
+      x.addEventListener("click", (e) => {
+        taskController.deleteTask(
+          e.target.parentNode.firstChild.nextSibling.innerHTML
+        );
+      })
+    );
 
-        let deleteGroup = document.getElementById('deletegroup')
-        deleteGroup.addEventListener('click', taskController.deleteGroup)
+    let deleteGroup = document.getElementById("deletegroup");
+    deleteGroup.addEventListener("click", taskController.deleteGroup);
 
-        document.querySelectorAll(".edit").forEach(x => x.addEventListener('click', (e) => {
-            replaceDataWithInput(e.target.parentNode.parentNode)
-        }))
+    document.querySelectorAll(".edit").forEach((x) =>
+      x.addEventListener("click", (e) => {
+        replaceDataWithInput(e.target.parentNode.parentNode);
+      })
+    );
 
-        document.querySelectorAll(".confirmedit").forEach(x => x.addEventListener('click', (e) => {
-            taskController.editTask(e.target.parentNode.parentNode)
-        }))
+    document.querySelectorAll(".confirmedit").forEach((x) =>
+      x.addEventListener("click", (e) => {
+        taskController.editTask(e.target.parentNode.parentNode);
+      })
+    );
 
-        document.querySelectorAll(".group").forEach(x => x.addEventListener('click', (e) => {
-            taskController.changeGroup(e.target.id)
-        }))
+    document.querySelectorAll(".group").forEach((x) =>
+      x.addEventListener("click", (e) => {
+        taskController.changeGroup(e.target.id);
+      })
+    );
 
-        let createGroup = document.getElementById('addgroup')
-        createGroup.addEventListener('click', taskController.newGroup)
+    let createGroup = document.getElementById("addgroup");
+    createGroup.addEventListener("click", taskController.newGroup);
 
-        document.querySelectorAll('.expand').forEach((x) => {
-            x.addEventListener('click', (e) => {
-                e.currentTarget.nextSibling.nextSibling.classList.toggle('taskdescshow')
-            })
-        })
-
-    }
-    return {
-        displayAll,
-        assignEventListeners,
-        resetDisplay,
-    }
+    document.querySelectorAll(".expand").forEach((x) => {
+      x.addEventListener("click", (e) => {
+        e.currentTarget.nextSibling.nextSibling.classList.toggle(
+          "taskdescshow"
+        );
+      });
+    });
+  }
+  return {
+    displayAll,
+    assignEventListeners,
+    resetDisplay,
+  };
 })();
