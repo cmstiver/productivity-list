@@ -177,7 +177,10 @@ export let taskController = (function () {
   }
 
   function retrieveFromStorage() {
-    if (localStorage.length != 0) {
+    if (
+      localStorage.taskDataString != null &&
+      localStorage.groupDataString != null
+    ) {
       let retrievedTaskData = localStorage.getItem("taskDataString");
       dataHolder.taskData = JSON.parse(retrievedTaskData);
 
