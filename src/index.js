@@ -196,6 +196,7 @@ export let taskController = (function () {
     sortDates,
     deleteGroup,
     retrieveFromStorage,
+    addToStorage,
   };
 })();
 
