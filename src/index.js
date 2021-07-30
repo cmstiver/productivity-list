@@ -200,4 +200,5 @@ export let taskController = (function () {
 })();
 
 taskController.retrieveFromStorage();
+taskController.addToStorage();
 displayController.displayAll();
